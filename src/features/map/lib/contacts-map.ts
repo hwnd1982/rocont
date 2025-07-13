@@ -1,6 +1,7 @@
 import { YMap } from "@yandex/ymaps3-types";
 import { states } from "@shared/config/states";
 import { loadYMaps } from "@shared/lib/loadYMaps";
+import { YMAPS_API_KEY } from "@shared/config/api";
 
 export class ContactsMap {
   el: HTMLElement;
@@ -25,7 +26,7 @@ export class ContactsMap {
     if (!window.store.yandexMapDidInit || !this.map) {
       try {
         await loadYMaps(
-          `https://api-maps.yandex.ru/v3/?apikey=${process.env.YMAPS_API_KEY}&lang=ru_RU`,
+          `https://api-maps.yandex.ru/v3/?apikey=${YMAPS_API_KEY}&lang=ru_RU`,
           true,
           "api-maps",
         );
