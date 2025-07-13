@@ -1,0 +1,50 @@
+.burger.button-icon {
+  padding: 0;
+
+  & > .icon {
+    width: 4.4rem;
+    height: 4.4rem;
+    margin: -.4rem;
+    stroke: currentColor;
+    fill: none;
+
+    & > .line {
+      stroke-width: 4;
+      transition: stroke-dasharray $hover-transition, stroke-dashoffset $hover-transition;
+
+      &._top {
+        stroke-dasharray: 50 200;
+      }
+
+      &._middle {
+        stroke-dasharray: 50 111;
+      }
+
+      &._bottom {
+        stroke-dasharray: 50 200;
+      }
+    }
+  }
+
+  &._open {
+    box-shadow: -0.2rem 0.2rem .8rem .2rem $prime-600;
+
+    & > .icon {
+      & > .line {
+        &._top {
+          stroke-dasharray: 32 200;
+          stroke-dashoffset: -167;
+        }
+
+        &._middle {
+          stroke-dashoffset: -80;
+        }
+
+        &._bottom {
+          stroke-dasharray: 32 200;
+          stroke-dashoffset: -172;
+        }
+      }
+    }
+  }
+}

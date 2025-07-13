@@ -1,0 +1,19 @@
+{
+    "trailingComma": "es5",
+    "tabWidth": 2,
+    "semi": true,
+    "singleQuote": false,
+    "printWidth": 120,
+    "plugins": ["@shopify/prettier-plugin-liquid"],
+    "overrides": [
+        {
+            "files": ["*.twig"],
+            "options": {
+            "parser": "liquid-html",
+            "liquidSingleQuote": false,
+            "liquidSyntax": "twig",
+            "indentSchema": true
+            }
+        }
+    ]
+}

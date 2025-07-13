@@ -1,0 +1,14 @@
+<div class="slider-nav">
+  {%
+    include "@ui/arrow/template.twig" with {
+    mode: "_prime",
+    classNames: "js-prev",
+    } only
+  %}
+  {%
+    include "@ui/arrow/template.twig" with {
+    mode: "_prime",
+    classNames: "js-next",
+    } only
+  %}
+</div>

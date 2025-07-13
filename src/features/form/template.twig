@@ -1,0 +1,21 @@
+{% set content = content ?: '' %}
+{% set id = id ?: '' %}
+{% set action = action ?: '#' %}
+{% set method = method ?: 'post' %}
+
+{% set baseClasses = ['form', 'js-form'] %}
+{%
+  set normalizedClassNames = classNames is defined and classNames
+  ? (classNames is iterable ? classNames : classNames|split(' '))
+  : []
+%}
+{% set allClasses = baseClasses|merge(normalizedClassNames) %}
+
+<form
+  class="{{ allClasses|join(" ") }}"
+  {{ id ? 'data-form-id=' ~ id }}
+  {{ action ? 'action=' ~ action }}
+  {{ method ? 'method=' ~ method }}
+>
+  {{ content }}
+</form>

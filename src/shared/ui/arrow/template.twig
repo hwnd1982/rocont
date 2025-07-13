@@ -1,0 +1,23 @@
+{% set tag = tag ?: href ? 'a' : 'button' %}
+{% set type = tag == 'button' ? type ? type : 'button' : "" %}
+{% set mode = mode ?: '_light' %}
+{% set disabled = disabled ?: false %}
+{% set classNames = classNames ? ["arrow"]|merge([classNames, mode]) : ["arrow", mode] %}
+{% set attributes = attributes ?: "" %}
+
+<{{ tag }}
+  class="{{ classNames|length ? classNames|join(" ") }}"
+  {{ href ? "href=" ~ href }}
+  {{ attributes }}
+  {{ type ? "type=" ~ type }}
+  {{ disabled ? "disabled" }}
+>
+  {%
+    include "@ui/icon/template.twig" with {
+    width: 48,
+    height: 20,
+    link: "arrow",
+    classNames: "_fill-none"
+    }
+  %}
+</{{ tag }}>

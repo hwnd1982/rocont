@@ -1,0 +1,12 @@
+{% set error = error ?: '' %}
+{% set required = required ?: '' %}
+
+<div class="errors">
+  {% if required %}
+    <p class="error _required">{{ required }}</p>
+  {% endif %}
+
+  {% if error %}
+    <p class="error">{{ error }}</p>
+  {% endif %}
+</div>

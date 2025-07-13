@@ -1,0 +1,28 @@
+{% set content = content ?: '' %}
+{% set tag = href ? 'a' : 'button' %}
+{% set type = type ?: 'button' %}
+{% set mode = mode ?: '_prime' %}
+{% set withArrow = withArrow ?: true %}
+{% set disabled = disabled ?: false %}
+{% set classNames = classNames ? ["button"]|merge([classNames, mode]) : ["button", mode] %}
+{% set attributes = attributes ?: "" %}
+
+<{{ tag }}
+  class="{{ classNames|length ? classNames|join(" ") }}"
+  {{ href ? "href=" ~ href }}
+  {{ not href and type ? "type=" ~ type }}
+  {{ disabled ? "disabled" }}
+  {{ attributes }}
+>
+  {% if content %}
+    <span>{{ content }}</span>
+    {% if withArrow %}
+      {%
+        include "@ui/arrow/template.twig" with {
+        tag: "span",
+        mode: mode == "_prime" ? "_light" : "_prime"
+        } only
+      %}
+    {% endif %}
+  {% endif %}
+</{{ tag }}>

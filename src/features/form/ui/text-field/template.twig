@@ -1,0 +1,67 @@
+{% set content = content ?: '' %}
+{% set tag = tag ?: 'input' %}
+{% set type = tag == 'input' ? type ?: 'text' : "" %}
+{% set name = name ?: '' %}
+{% set label = label ?: '' %}
+{% set value = value ?: '' %}
+{% set validate = validate ?: "required" %}
+{% set error = error ?: '' %}
+{% set required = required ?: 'Это обязательное поле' %}
+{% set placeholder = placeholder ?: '' %}
+
+{% set disabled = disabled ?: false %}
+{% set attributes = attributes ?: "" %}
+
+{% set baseClasses = ['text-field', 'js-text-field'] %}
+{% if type is defined and type == "select" %}
+  {% set baseClasses = baseClasses|merge(['_select','js-custom-select']) %}
+{% endif %}
+{% if disabled is defined and disabled %}
+  {% set baseClasses = baseClasses|merge(['_disabled']) %}
+{% endif %}
+{%
+  set normalizedClassNames = classNames is defined and classNames
+  ? (classNames is iterable ? classNames : classNames|split(' '))
+  : []
+%}
+{% set allClasses = baseClasses|merge(normalizedClassNames) %}
+
+<div
+  class="{{ allClasses|join(" ") }}"
+  {{ name ? "data-name=" ~ name }}
+  {{ props.attributes }}
+>
+  {% if label %}
+    <label class="label" for="{{ name }}">{{ label }}</label>
+  {% endif %}
+
+  <div class="inner">
+    {% if type != "select" %}
+      <{{ tag }}
+        class="input js-text-field-input"
+        {{ type ? "type=" ~ type }}
+        {{ name ? "name=" ~ name }}
+        {{ value ? "value=" ~ value }}
+        {{ placeholder ? "placeholder=" ~ placeholder }}
+        {{ disabled ? "disabled" }}
+        {{ type == "password" ? 'autocomplete="new-password"' }}
+        {{ validate ? 'data-validate="' ~ validate ~ '"' }}
+      ></{{ tag }}>
+    {% else %}
+
+    {% endif %}
+
+    {% if placeholder %}
+      <span class="placeholder">{{ placeholder }}</span>
+    {% endif %}
+  </div>
+
+  {% if validate and (required or error) %}
+    {%
+      include "@ui/errors/template.twig" with {
+      error: error,
+      required: required,
+      } only
+    %}
+  {% endif %}
+</div>

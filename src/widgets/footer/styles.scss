@@ -1,0 +1,105 @@
+.footer {
+  padding: 3.2rem 0;
+
+  & > .container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 3.2rem;
+
+    @include breakpoint-down($md) {
+      flex-direction: column;
+    }
+
+    & > .nav {
+      & > .list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(9.6rem, 1fr));
+        max-width: 36rem;
+        gap: 1.6rem 3.2rem;
+
+        @include breakpoint-down($md) {
+          grid-template-columns: repeat(auto-fill, minmax(7.6rem, 1fr));
+          gap: 3.2rem 6.4rem;
+        }
+
+        @include breakpoint-down($xs) {
+          grid-template-columns: 100%;
+          gap: 2.4rem;
+        }
+
+        & > .item {
+          & > .link {
+            display: block;
+
+            @include hover {
+              color: $prime;
+            }
+          }
+        }
+      }
+    }
+
+    & .logo {
+      @include breakpoint-down($md) {
+        order: -1;
+      }
+    }
+
+    & > .group {
+      display: flex;
+      align-items: flex-start;
+      gap: 3.2rem;
+
+      @include breakpoint-down($xl) {
+        max-width: 42.2rem;
+        width: 100%;
+      }
+
+      @include breakpoint-down($md) {
+        display: contents;
+      }
+
+      & > .column {
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+
+        @include breakpoint-down($md) {
+          width: 100%;
+          padding-top: 3.2rem;
+          border-top: 2px solid $dark;
+          gap: 3.2rem;
+        }
+
+        @include breakpoint-down($xs) {
+          gap: 2.4rem;
+        }
+
+        & > .copyright {
+          margin: 0;
+
+          @include breakpoint-down($md) {
+            font-weight: 500;
+            line-height: 1.05;
+          }
+        }
+
+        & > .link {
+          display: block;
+          text-decoration: none;
+          color: $dark;
+          
+          @include breakpoint-down($md) {
+            font-weight: 500;
+            line-height: 1.05;
+          }
+
+          @include hover {
+            color: $prime;
+          }
+        }
+      }
+    }
+  }
+}

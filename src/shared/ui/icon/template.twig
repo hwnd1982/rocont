@@ -1,0 +1,12 @@
+{% set classNames = classNames ? ["icon"]|merge([classNames]) : ["icon"] %}
+
+{% set width = width ?: "24" %}
+{% set height = height ?: "24" %}
+
+<svg
+    class="{{ classNames|join(" ") }}"
+    width="{{ width }}"
+    height="{{ height }}"
+>
+    <use xlink:href="#{{ link }}"></use>
+</svg>

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="{% block lang %}ru{% endblock %}">
+  <head>
+    <meta charset="UTF-8">
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    >
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="ie=edge"
+    >
+    <title>
+      {% block title %}
+      Просто потому что можем
+      {% endblock %}
+    </title>
+    <link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+    {% if htmlWebpackPlugin.isProd %}
+      <link
+        rel="stylesheet"
+        href="base.css"
+      >
+    {% endif %}
+
+    {% for css in htmlWebpackPlugin.files.css %}
+      {% if css|split('.')[0] == htmlWebpackPlugin.options.filename|split('.')[0] %}
+        <link
+          rel="stylesheet"
+          href="{{ css }}"
+        >
+      {% endif %}
+    {% endfor %}
+
+    {% for js in htmlWebpackPlugin.files.js %}
+      {% if js|split('.')[0] == htmlWebpackPlugin.options.filename|split('.')[0] %}
+        <script
+          defer="defer"
+          src="base.js"
+        ></script>
+        <script
+          defer="defer"
+          src="{{ js }}"
+        ></script>
+      {% endif %}
+    {% endfor %}
+  </head>
+  <body>
+    <div class="page-content">
+      {% include "@widgets/header/template.twig" %}
+
+      <main class="{% block classNameMain %}{% endblock %}">
+        {% block content -%}
+        {%- endblock %}
+      </main>
+
+      {% include "@widgets/footer/template.twig" %}
+    </div>
+
+    {% include "@features/custom-modal/template.twig" %}
+
+    {% block modals %}
+    {# #}
+    {% endblock %}
+
+    {% for sprite in htmlWebpackPlugin.files.svgSprites %}
+      {% if sprite[0]|split('.')[0] == htmlWebpackPlugin.options.filename|split('.')[0] or sprite[0]|split('.')[0] == 'base' %}
+        {{ sprite[1] }}
+      {% endif %}
+    {% endfor %}
+  </body>
+</html>

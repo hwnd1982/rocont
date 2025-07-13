@@ -1,0 +1,44 @@
+{%
+  set slides = [
+  {
+  img: "assets/images/slide-img-01.jpg",
+  title: "Немного упругости",
+  text: "Чуть-чуть сияния, и ощущение, что вы о себе позаботились",
+  href: "#",
+  },
+  {
+  img: "assets/images/slide-img-02.jpg",
+  title: "Немного упругости",
+  text: "Чуть-чуть сияния, и ощущение, что вы о себе позаботились",
+  href: "#",
+  },
+  {
+  img: "assets/images/slide-img-03.jpg",
+  title: "Немного упругости",
+  text: "Чуть-чуть сияния, и ощущение, что вы о себе позаботились",
+  href: "#",
+  },
+  {
+  img: "assets/images/slide-img-04.jpg",
+  title: "Немного упругости",
+  text: "Чуть-чуть сияния, и ощущение, что вы о себе позаботились",
+  href: "#",
+  },
+  {
+  img: "assets/images/slide-img-05.jpg",
+  title: "Немного упругости",
+  text: "Чуть-чуть сияния, и ощущение, что вы о себе позаботились",
+  href: "#",
+  },
+  ]
+%}
+
+<div class="announce-slider swiper">
+  <ul class="list swiper-wrapper">
+    {% for slide in slides %}
+      <li class="item swiper-slide">
+        {% include "@ui/announce-card/template.twig" with { slide: slide } only %}
+      </li>
+    {% endfor %}
+  </ul>
+</div>

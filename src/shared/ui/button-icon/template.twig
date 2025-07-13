@@ -1,0 +1,34 @@
+{% set tag = href ? 'a' : 'button' %}
+{% set type = type ?: 'button' %}
+{% set mode = mode ?: '_prime' %}
+{% set label = label ?: '' %}
+{% set link = link ?: '' %}
+{% set disabled = disabled ?: false %}
+{% set classNames = classNames ? ["button-icon"]|merge([classNames, mode]) : ["button-icon", mode] %}
+{% set attributes = attributes ?: "" %}
+
+{% set baseClasses = ['button-icon'] %}
+{% if mode is defined and mode %}
+  {% set baseClasses = baseClasses|merge([mode]) %}
+{% endif %}
+{%
+  set normalizedClassNames = classNames is defined and classNames
+  ? (classNames is iterable ? classNames : classNames|split(' '))
+  : []
+%}
+{% set allClasses = baseClasses|merge(normalizedClassNames) %}
+
+<{{ tag }}
+  class="{{ allClasses|join(" ") }}"
+  {{ href ? "href=" ~ href }}
+  {{ not href and type ? "type=" ~ type }}
+  {{ disabled ? "disabled" }}
+  {{ label ? "aria-label=" ~ label }}
+  {{ attributes }}
+>
+  {%
+    include "@ui/icon/template.twig" with {
+    link: link
+    } only
+  %}
+</{{ tag }}>

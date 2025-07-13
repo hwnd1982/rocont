@@ -1,0 +1,62 @@
+{%
+  set props = ({
+  id: "",
+  class: "",
+  wrapperClass: "",
+  windowClass: "",
+  closeClass: "",
+  closeButton: true,
+  bodyClass: "",
+  children: "",
+  title: "",
+  titleClass: "",
+  mobileMode: true,
+  })|merge(props ?: {})
+%}
+
+{% set content = content ?: '' %}
+{% set id = id ?: '' %}
+{% set title = title ?: '' %}
+{% set mobile = mobile ?: true %}
+{% set mobile = close ?: true %}
+
+{% set baseClasses = ['modal', 'js-modal'] %}
+{% if mobile is defined and mobile %}
+  {% set baseClasses = baseClasses|merge(['_mobile']) %}
+{% endif %}
+{%
+  set normalizedClassNames = classNames is defined and classNames
+  ? (classNames is iterable ? classNames : classNames|split(' '))
+  : []
+%}
+{% set allClasses = baseClasses|merge(normalizedClassNames) %}
+
+<div
+  class="{{ allClasses|join(" ") }}"
+  aria-hidden="true"
+  {{ id ? 'data-modal-id=' ~ id }}
+>
+  <div class="wrapper js-modal-wrapper">
+    <div class="window js-modal-window">
+      {% if mobile %}
+        {% include "@ui/modal-touch-handler/template.twig" %}
+      {% endif %}
+
+      {% if close %}
+        {%
+          include '@ui/button-icon/template.twig' with {
+          link: "close",
+          classNames: "close js-modal-close" ~ (props.closeClass ? " " ~ props.closeClass),
+          } only
+        %}
+      {% endif %}
+
+      <div class="body js-modal-body">
+        {% if title %}
+          <p class="title">{{ title }}</p>
+        {% endif %}
+        {{ content }}
+      </div>
+    </div>
+  </div>
+</div>

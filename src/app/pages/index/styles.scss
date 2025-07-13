@@ -1,0 +1,212 @@
+.welcome {
+  padding-top: 8.4rem;
+
+  & > .container {
+
+  }
+
+  & .video {
+    display: block;
+    width: 100%;
+    height: 46rem;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+
+  &__container {
+    display: flex;
+    height: 100%;
+  }
+
+  &__content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+
+    @include breakpoint-down($md) {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding-top: 12rem;
+    }
+  }
+
+  &__headline {
+    display: flex;
+    flex-direction: column;
+    padding-top: 16rem;
+    max-width: 90rem;
+    margin-left: -15rem;
+    z-index: 1;
+
+    @include breakpoint-down($md) {
+      flex-direction: column;
+      margin-left: 0;
+      padding-top: 0;
+      margin-top: -6rem;
+      padding-left: 10rem;
+      max-width: 80rem;
+    }
+  }
+
+  &__logo {
+    display: block;
+    width: 75rem;
+    height: 75rem;
+    // color: $orange;
+    box-shadow: 0 0 10rem 0 #00000080;
+    border-radius: 50%;
+
+    @include breakpoint-down($md) {
+      width: 50rem;
+      height: 50rem;
+    }
+
+    &-scene {
+      position: relative;
+    }
+  }
+
+  &__title {
+    font-weight: 900;
+    font-size: 20rem;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    margin: 0 0 -3rem;
+
+    @include breakpoint-down($md) {
+      font-size: 10rem;
+      margin-bottom: 0;
+    }
+  }
+
+  &__subtitle {
+    font-weight: 500;
+    font-size: 4.8rem;
+    line-height: 1.4;
+    letter-spacing: 0.02em;
+    margin: 0;
+
+    @include breakpoint-down($md) {
+      font-size: 3.2rem;
+    }
+  }
+
+  &__social {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+
+  &__lines {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 56.6rem;
+    height: 36.6rem;
+    transform: translate(-15%,-35%);
+
+    @include breakpoint-down($md) {
+      top: 50%;
+      left: auto;
+      right: 0;
+      height: 24rem;
+      width: 40rem;
+      transform: rotate(90deg) translate(15%, -70%);
+    }
+  }
+
+  &__rect {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.decor {
+  &.decor-circle-bottom-left {
+    width: 67.4rem;
+    height: 67.4rem;
+  }
+
+  &.decor-circle-top-right {
+    width: 87rem;
+    height: 87rem;
+  }
+
+  &.decor-logo-rect-bottom-right {
+    width: 6.6rem;
+    height: 6.6rem;
+    --x: 37rem;
+    --y: -37rem;
+    --r: 45deg;
+
+    @include breakpoint-down($md) {
+      --x: 24rem;
+      --y: -24rem;
+    }
+  }
+
+  &.decor-logo-rect-top-left {
+    width: 4.6rem;
+    height: 4.6rem;
+    --x: -42.6rem;
+    --y: 20rem;
+    --r: 15deg;
+
+    @include breakpoint-down($md) {
+      --x: -32.6rem;
+      --y: 10rem;
+    }
+  }
+
+  &.decor-rect-bottom-left {
+    width: 2.6rem;
+    height: 2.6rem;
+    --x: -42.6rem;
+    --y: -37.6rem;
+    --r: -45deg;
+
+    @include breakpoint-down($md) {
+      --x: -36.6rem;
+      --y: -36.6rem;
+    }
+  }
+
+  @include breakpoint-up($md) {    
+    &.decor-circle-bottom-left {
+      --x: -71.4rem;
+      --y: -54.2rem;
+    }
+    
+    &.decor-circle-top-right {
+      --x: 96rem;
+      --y: 54rem;
+    }
+  }
+
+  @include breakpoint-down($md) {
+    &.decor-circle-bottom-left {
+      bottom: 0;
+      left: 0;
+      transform: translate(-50%, 50%);
+    }
+
+    &.decor-circle-top-right {
+      top: 0;
+      right: 0;
+      transform: translate(50%, -50%);
+    }
+
+    &.decor-logo-rect-bottom-right, &.decor-logo-rect-top-left, .decor-rect-bottom-left {
+        top: 50%;
+        left: 50%;
+        transform-origin: 50% 50%;
+        transform: translate(calc(-50% + var(--x, 0)), calc(-50% - var(--y, 0))) rotate(var(--r, 0));
+    }
+  }
+}

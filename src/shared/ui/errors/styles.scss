@@ -1,0 +1,23 @@
+.errors {
+  height: 0;
+  opacity: 0;
+
+  ._error & {
+    height: auto;
+    opacity: 1;
+  }
+
+  & > .error {
+    display: none;
+    margin: .4rem 0 0;
+    color: $error;
+
+    ._error &:not(._required) {
+      display: block;
+    }
+
+    ._error._required &._required {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,45 @@
+.not-quite {
+  padding-top: 9.6rem;
+  overflow: hidden;
+
+  @include breakpoint-down($xl) {
+    padding-top: 6.4rem;
+  }
+
+  & .inner {
+    display: grid;
+    grid-template-columns: 23.6rem 100%;
+    gap: 0.8rem;
+
+    @include breakpoint-down($xl) {
+      grid-template-columns: 23.2rem 100%;
+    }
+
+    @include breakpoint-down($md) {
+      grid-template-columns: 100%;
+      gap: 2.4rem;
+    }
+
+    & > .info {
+      display: flex;
+      flex-direction: column;
+  
+      & > .title {
+        margin: 0 0 3.2rem;
+        @extend .hl-lg-b;
+
+        @include breakpoint-down($md) {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  & .slider-nav {
+    margin-top: auto;
+
+    @include breakpoint-down($md) {
+      display: none;
+    }
+  }
+}

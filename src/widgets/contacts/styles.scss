@@ -1,0 +1,117 @@
+.contacts {
+  padding-top: 9.6rem;
+
+  @include breakpoint-down($xl) {
+    padding-top: 6.4rem;
+  }
+
+  & > .container {
+    & > .inner {
+      display: grid;
+      grid-template-columns: 1fr 54.5rem;
+      gap: 0.8em;
+
+      @include breakpoint-down($xl) {
+        grid-template-columns: 1fr 42.2rem;
+      }
+
+      @include breakpoint-down($md) {
+        grid-template-columns: 100%;
+      }
+    }
+  }
+
+  & .info {
+    padding: 6.4rem;
+    background-color: $light;
+    border-radius: 2.4rem;
+
+    @include breakpoint-down($xl) {
+      padding: 4.8rem;
+    }
+
+    @include breakpoint-down($md) {
+      padding: 2.4rem;
+    }
+  }
+
+  & .title {
+    margin: 0 0 3.2rem;
+    @extend .hl-md-b;
+
+    @include breakpoint-down($xl) {
+      margin-bottom: 2.4rem;
+    }
+  }
+
+  & .list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    padding: 0;
+    margin: 0 0 3.2rem;
+    list-style: none;
+
+    @include breakpoint-down($xl) {
+      margin-bottom: 2.4rem;
+    }
+
+    & > .row {
+      display: flex;
+      gap: 3.2rem;
+
+      @include breakpoint-down($xs) {
+        flex-direction: column;
+        gap: 1.6rem;
+      }
+
+      & > .text, & > .link {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        margin: 0;
+        // width: 100%;
+        color: $dark;
+        @extend .text-lg-m;
+
+        & > .icon {
+          color: $light;
+          background-color: $prime;
+          border-radius: 50%;
+          flex-shrink: 0;
+        }
+      }
+
+      & > .link {
+        text-decoration: none;
+
+        @include hover {
+          color: $prime;
+        }
+      }
+    }
+  }
+
+  & .map {
+    width: 100%;
+    min-height: 43.5rem;
+    border-radius: 2.4rem;
+
+    @include breakpoint-down($xl) {
+      min-height: 36rem;
+    }
+
+    @include breakpoint-down($md) {
+      min-height: 25rem;
+    }
+
+    @include breakpoint-down($sm) {
+      min-height: auto;
+      aspect-ratio: 2.3 / 1.1;
+    }
+
+    @include breakpoint-down($xs) {
+      aspect-ratio: 3 / 2;
+    }
+  }
+}

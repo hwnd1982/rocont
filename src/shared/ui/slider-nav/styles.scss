@@ -1,0 +1,9 @@
+.slider-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+
+  & > .arrow:first-child {
+    transform: scale(-1, 1);
+  }
+}

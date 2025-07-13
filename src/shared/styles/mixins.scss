@@ -1,0 +1,50 @@
+$hover-screen: 1024px;
+$hover-transition: .4s ease-in-out;
+
+@mixin font-face($family, $src, $weight: 400, $style: normal, $display: swap) {
+  @font-face {
+    font-family: $family;
+    src:
+      url("assets/fonts/#{$src}.woff2") format("woff2"),
+      url("assets/fonts/#{$src}.woff") format("woff");
+    font-display: $display;
+    font-style: $style;
+    font-weight: $weight;
+  }
+}
+
+@mixin ellipsis($line: 1) {
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin breakpoint-down($width) {
+  @media only screen and (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin breakpoint-up($width) {
+  @media only screen and (min-width: ($width + 0.5)) {
+    @content;
+  }
+}
+
+@mixin hover($width: $hover-screen) {
+  @media (hover: hover) and (min-width: ($width + 0.5)) {
+    transition: $hover-transition;
+
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin active {
+  &.is-active {
+    @content;
+  }
+}

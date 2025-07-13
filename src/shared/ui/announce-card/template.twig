@@ -1,0 +1,23 @@
+{% set classNames = classNames ? ["announce-card"]|merge([classNames]) : ["announce-card"] %}
+
+{%
+  set slideOptions = {
+  img: "",
+  title: "",
+  text: "",
+  href: "#",
+  }
+%}
+
+{% set slide = slide ? slideOptions|merge(slide) : slideOptions %}
+
+<article class="{{ classNames|join(" ") }}">
+  <a href="{{ slide.href }}" class="link"></a>
+  <picture class="picture">
+    <img src="{{ slide.img }}" alt="{{ slide.title }}" class="img lazy">
+  </picture>
+  <div class="info">
+    <h3 class="title">{{ slide.title }}</h3>
+    <p class="text">{{ slide.text }}</p>
+  </div>
+</article>

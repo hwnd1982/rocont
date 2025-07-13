@@ -1,0 +1,42 @@
+.button-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: .6rem;
+  border-radius: 50%;
+  border: none;;
+  text-decoration: none;
+  width: 3.6rem;
+  height: 3.6rem;
+
+  &:disabled {
+    opacity: 0.7;
+    pointer-events: none;
+  }
+
+  &._prime {
+    background-color: $prime;
+    color: $light;
+    box-shadow: 0 0 0 1.5px $prime inset;
+
+    @include hover {
+      background-color: $light;
+      color: $prime;
+    }
+  }
+
+  &._light {
+    background-color: $light;
+    color: $dark;
+    box-shadow: 0 0 0 1.5px $light inset;
+
+    @include hover {
+      background-color: $prime;
+      color: $light;
+    }
+  }
+
+  & > .icon {
+    flex-shrink: 0;
+  }
+}

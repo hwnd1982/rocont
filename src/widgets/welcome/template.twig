@@ -1,0 +1,38 @@
+<section id="system" class="welcome">
+  <div class="container">
+    <div class="inner">
+      <video
+        width="1160"
+        height="460"
+        class="video lazy"
+        autoplay
+        loop
+        muted
+        playsinline
+        data-poster="assets/images/welcome.jpg"
+      >
+        <source data-src="assets/video/welcome.mp4" type="video/mp4">
+      </video>
+
+      <div class="info">
+        <h1 class="title">Просто потому что можем</h1>
+        <p class="text">
+          Мы сделали это средство не ради прибыли, а из любви к красивым словам. Один стик в день — и вы чувствуете, что
+          делаете что-то важное. Что именно — решать вам.
+        </p>
+        {%
+          include "@ui/button/template.twig" with {
+          href: "https://rocont.ru/",
+          attributes: 'target="_blank"',
+          content: "Попробовать просто так",
+          } only
+        %}
+      </div>
+
+      <p class="certificate">
+        <span>Сертификат есть. Но это не точно.</span>
+        <span>СГР №AM.01.01 .01.003.R.00&nbsp;o47&nbsp;4.06.24</span>
+      </p>
+    </div>
+  </div>
+</section>

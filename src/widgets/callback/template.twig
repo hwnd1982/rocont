@@ -1,0 +1,81 @@
+<section id="opinion" class="callback">
+  <div class="container">
+    <div class="inner">
+      <div class="info">
+        <h2 class="title">Если вы&nbsp;тоже решили «а&nbsp;почему бы&nbsp;и&nbsp;нет»</h2>
+
+        <ul class="list">
+          <li class="item">
+            {%
+              include "@ui/icon/template.twig" with {
+              link: "point-arrow",
+              }
+            %}
+            <span>Можно заказать много</span>
+          </li>
+          <li class="item">
+            {%
+              include "@ui/icon/template.twig" with {
+              link: "point-arrow",
+              }
+            %}
+            <span>Доступ возможен через северный интерфейс</span>
+          </li>
+          <li class="item">
+            {%
+              include "@ui/icon/template.twig" with {
+              link: "point-arrow",
+              }
+            %}
+            <span>Можно просто поболтать</span>
+          </li>
+        </ul>
+      </div>
+
+      {% set formContent %}
+      <div class="fieldset">
+        {%
+          include "@features/form/ui/text-field/template.twig" with {
+          name: "name",
+          placeholder: "Имя",
+          validate: "name, required",
+          } only
+        %}
+
+        {%
+          include "@features/form/ui/text-field/template.twig" with {
+          name: "phone",
+          placeholder: "Телефон",
+          validate: "phone, required"
+          } only
+        %}
+      </div>
+
+      {%
+        include "@features/form/ui/radio-field/template.twig" with {
+        name: "agree",
+        content: "Согласен(-на) на обработку чего угодно — лишь бы форма работала",
+        } only
+      %}
+
+      {%
+        include "@ui/button/template.twig" with {
+        content: "Отправить",
+        type: "submit",
+        mode: "_light",
+        classNames: "js-form-submit"
+        } only
+      %}
+      {% endset %}
+
+      {%
+        include "@features/form/template.twig" with {
+        id: "callback",
+        action: "https://rocont.ru/forms/send/callback",
+        content: formContent,
+        classNames: "js-default-form",
+        }
+      %}
+    </div>
+  </div>
+</section>

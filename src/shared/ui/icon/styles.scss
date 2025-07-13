@@ -1,0 +1,13 @@
+.icon {
+    display: block;
+    width: 2.4rem;
+    height: 2.4rem;
+
+    &:not(._fill-none) {
+        fill: currentColor;
+    }
+
+    &._fill-none {
+        fill: none;
+    }
+}

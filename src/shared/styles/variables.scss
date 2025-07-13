@@ -1,0 +1,99 @@
+@use "mixins" as *;
+
+$prime: #1f8b48;
+$prime-600: #1f8b4899;
+$dark: #2e2d2b;
+$dark-700: #2e2d2bb2;
+$dark-100: #2e2d2b19;
+$light: #ffffff;
+$bg: #f6f6f6;
+$prime-gradient: linear-gradient(180deg, rgba(31, 139, 72, 0) 31.3%, $prime 100%);
+$transp: #fff0;
+$error: red;
+
+$transition: .4s ease-in-out;
+$transition-duration: 4s;
+
+$xl: 1024px;
+$lg: 992px;
+$md: 768px;
+$sm: 568px;
+$xs: 390px;
+
+.hl-xl-b {
+  font-family: Gropled, sans-serif;
+  font-size: 6.4rem;
+  font-weight: 700;
+  line-height: 0.9;
+
+  @include breakpoint-down($xl) {
+    font-size: 3.2rem;
+    line-height: 1;
+  }
+}
+
+.hl-lg-b {
+  font-family: Gropled, sans-serif;
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 0.95;
+
+  @include breakpoint-down($xl) {
+    font-size: 2.8rem;
+    line-height: 1;
+  }
+}
+
+.hl-md-b {
+  font-family: Gropled, sans-serif;
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: 1;
+
+  @include breakpoint-down($md) {
+    font-size: 2.4rem;
+    line-height: 1;
+  }
+}
+
+.hl-sm-b {
+  font-family: Gropled, sans-serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1.1;
+
+  @include breakpoint-down($md) {
+    font-size: 2rem;
+    line-height: 1;
+  }
+}
+
+.text-lg-m {
+  font-size: 2.1rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.03em;
+
+  @include breakpoint-down($xl) {
+    font-size: 1.8rem;
+    line-height: 1.2;
+  }
+}
+
+.text-sm-m {
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.text-button {
+  font-family: Gropled, sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.1;
+
+  @include breakpoint-down($xl) {
+    font-size: 1.6rem;
+    line-height: 1;
+  }
+}

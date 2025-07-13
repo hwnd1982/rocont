@@ -1,0 +1,102 @@
+.callback {
+  padding-top: 9.6rem;
+
+  @include breakpoint-down($xl) {
+    padding-top: 6.4rem;
+  }
+
+  & > .container {
+    & > .inner {
+      display: grid;
+      grid-template-columns: 5.6fr 6fr;
+      padding: 6.4rem;
+      border-radius: 2.4rem;
+      background-color: $prime;
+
+      @include breakpoint-down($xl) {
+        padding: 4.8rem;
+        grid-template-columns: 3.8fr 5.6fr;
+      }
+
+      @include breakpoint-down($md) {
+        grid-template-columns: 100%;
+        padding: 2.4rem;
+        gap: 2.4rem;
+      }
+    }
+  }
+
+
+  & .info {
+    color: $light;
+
+    & > .list {
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      gap: 1.6rem;
+      padding: 0;
+      margin: 0;
+
+      @include breakpoint-down($xl) {
+        max-width: 22.2rem;
+      }
+
+      @include breakpoint-down($md) {
+        max-width: none;
+      }
+
+      & > .item {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        @extend .text-lg-m;
+
+        & > .icon {
+          flex-shrink: 0;
+        }
+      }
+    }
+  }
+
+  & .title {
+    margin: 0 0 3.2rem;
+    @extend .hl-md-b;
+
+    @include breakpoint-down($xl) {
+      margin-bottom: 2.4rem;
+    }
+  }
+
+  & .form {
+    width: 100%;
+    max-width: 45rem;
+    justify-self: end;
+
+    @include breakpoint-down($xl) {
+      max-width: 41.6rem;
+    }
+
+    @include breakpoint-down($md) {
+      max-width: none;
+    }
+
+    & > .fieldset {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+
+      @include breakpoint-down($md) {
+        flex-direction: row;
+      }
+
+      @include breakpoint-down($xs) {
+        flex-direction: column;
+      }
+
+      & > .text-field {
+        width: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{% block classNameMain %}main{% endblock %}
+
+{% extends '@layouts/base.twig' %}
+
+{% block content %}
+{% include "@widgets/welcome/template.twig" %}
+{% include "@widgets/not-quite/template.twig" %}
+{% include "@widgets/callback/template.twig" %}
+{% include "@widgets/contacts/template.twig" %}
+{% endblock %}
+
+{% block modals %}
+{# #}
+{% endblock %}

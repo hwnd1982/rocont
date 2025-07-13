@@ -1,0 +1,111 @@
+.header {
+  position: fixed;
+  top: .8rem;
+  left: 0;
+  right: 0;
+  z-index: 99;
+
+  @include breakpoint-down($md) {
+    top: 0;
+    border-radius: 0 0 2.4rem 2.4rem;
+    transition: $transition;
+
+    &._scroll {
+      background-color: $light;
+
+      &._hidden {
+        transform: translateY(-100%);
+      }
+    }
+  }
+
+  @include breakpoint-down($sm) {
+    top: 1.6rem;
+
+    &._scroll {
+      transform: translateY(-1.6rem);
+
+      &._hidden {
+        transform: translateY(calc(-1.6rem - 100%));
+      }
+    }
+  }
+  
+  & .inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $light;
+    border-radius: 2.4rem;
+    padding: 1.6rem 3.6rem 1.6rem 2.4rem;
+
+    @include breakpoint-down($md) {
+      top: 0;
+      padding: 1.6rem 0;
+      border-radius: 0;
+      background-color: $transp;
+    }
+  }
+
+  & .wrapper {
+    & > .burger {
+      position: relative;
+      z-index: 1;
+
+      @include breakpoint-up($md) {
+        display: none;
+      }
+    }
+
+    & > .content {
+      @include breakpoint-down($md) {
+        position: absolute;
+        top: 2.2rem;
+        right: 1.8rem;
+        padding: 1.6rem;
+        border-radius: 1.6rem;
+        background-color: $light;
+        // border: 1px solid $prime;
+        opacity: 0;
+        pointer-events: none;
+        transition: $hover-transition;
+
+      }
+    }
+  }
+
+  &:not(._hidden) .burger._open + .content {
+    @include breakpoint-down($md) {
+      opacity: 1;
+      pointer-events: all;
+      box-shadow: -0.2rem 0.2rem .8rem .2rem $dark-100;
+    }
+  }
+
+  & .nav {
+    & > .list {
+      display: flex;
+      align-items: center;
+
+      @include breakpoint-down($md) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      & > .item {
+        & > .link {
+          display: flex;
+          align-items: center;
+          padding: 0 1.6rem;
+          height: 2.7rem;
+          border-radius: 4rem;
+
+          @include hover {
+            color: $light;
+            background-color: $prime;
+          }
+        }
+      }
+    }
+  }
+}

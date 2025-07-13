@@ -1,0 +1,38 @@
+.button {
+  display: flex;
+  align-items: center;
+  padding: 1.6rem 1.6rem 1.6rem 2.4rem;
+  gap: 1.6rem;
+  border-radius: 4rem;
+  border: none;;
+  text-decoration: none;
+  width: max-content;
+  @extend .text-button;
+
+  &:disabled {
+    opacity: 0.7;
+    pointer-events: none;
+  }
+
+  &._prime {
+    background-color: $prime;
+    color: $light;
+    box-shadow: 0 0 0 1.5px $prime inset;
+
+    @include hover {
+      background-color: $light;
+      color: $prime;
+    }
+  }
+
+  &._light {
+    background-color: $light;
+    color: $dark;
+    box-shadow: 0 0 0 1.5px $light inset;
+
+    @include hover {
+      background-color: $prime;
+      color: $light;
+    }
+  }
+}

@@ -1,0 +1,73 @@
+@use "@styles/mixins" as *;
+@use "@styles/variables" as *;
+
+@include font-face("Gropled", "Gropled/Gropled-Bold", 700);
+@include font-face("TildaSans-VF", "TildaSans-VF/TildaSans-VF", "400 500");
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: calc(100vw / 1400 * 10);
+
+  @include breakpoint-down($xl) {
+    font-size: calc(100vw / 960 * 10);
+  }
+
+  @include breakpoint-down($md) {
+    font-size: calc(100vw / 640 * 10);
+  }
+
+  @include breakpoint-down($sm) {
+    font-size: calc(100vw / 480 * 10);
+  }
+
+  @include breakpoint-down($xs) {
+    font-size: calc(100vw / 320 * 10);
+  }
+}
+
+body {
+  font-family: TildaSans-VF, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: $dark;
+  background-color: $bg;
+  margin: 0;
+}
+
+input, textarea {
+  font-family: TildaSans-VF, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.page-content {
+  display: flex;
+  flex-direction: column;
+  background-position: top;
+  background-image: url(topographic.svg);
+  background-size: min(2200px, 220rem) min(3400px, 340rem);
+  background-repeat: repeat-y;
+  min-height: 100dvh;
+
+  & > .main {
+    flex-grow: 1;
+  }
+
+  & .container {
+    padding-right: 3rem;
+    padding-left: 3rem;
+    max-width: 122rem;
+    margin: 0 auto;
+  
+    @include breakpoint-down($xl) {
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
+  }
+}

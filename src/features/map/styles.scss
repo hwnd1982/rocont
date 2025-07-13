@@ -1,0 +1,24 @@
+.map {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  & > .img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(2px) grayscale(.5);
+    z-index: 1;
+    transition: $hover-transition;
+  }
+
+  &._init > .img {
+    opacity: 0;
+    transform: scale(1.2);
+    pointer-events: none;
+    
+  }
+}

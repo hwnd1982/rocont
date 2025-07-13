@@ -1,0 +1,40 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "noImplicitAny": true,
+        "module": "ESNext",
+        "target": "es6",
+        "sourceMap": true,
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "baseUrl": "./",
+        "paths": {
+            "@icons/*": ["src/shared/icons/*"],
+            "@styles/*": ["src/app/styles/*"],
+            "@mixins": ["src/shared/styles/mixins.scss"],
+            "@shared/*": ["src/shared/*"],
+            "@widgets/*": ["src/widgets/*"],
+            "@entities/*": ["src/entities/*"],
+            "@features/*": ["src/features/*"],
+            "@ui/*": ["src/shared/ui/*"],
+            "@lib": ["src/shared/lib"],
+            "@app/*": ["src/app/*"]
+        }
+    },
+    "exclude": [
+        "node_modules",
+        "build",
+        "config/svgo"
+    ],
+    "ts-node": {
+        "compilerOptions": {
+            "module": "CommonJS"
+        }
+    },
+    "typeRoots": [
+        "./node_modules/@yandex/ymaps3-types",
+        "./node_modules/@types",
+        "@app/types"
+    ]
+}

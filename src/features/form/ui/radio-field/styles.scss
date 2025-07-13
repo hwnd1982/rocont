@@ -1,0 +1,40 @@
+.radio-field {
+  position: relative;
+  overflow: hidden;
+
+  & .label {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: $light;
+    @extend .text-sm-m;
+  }
+
+  & .icon {
+    flex-shrink: 0;
+    width: 2.4rem;
+    height: 2.4rem;
+
+    path {
+      transition: $hover-transition;
+    }
+  }
+
+  & .input {
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    transform: translateX(-105%);
+  }
+
+  & .input:checked ~ .icon {
+    path:first-child {
+      stroke-dashoffset: 57.5;  
+    }
+
+    path:last-child {
+      stroke-dashoffset: 0;
+    }
+  }
+}

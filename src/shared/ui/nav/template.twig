@@ -1,0 +1,34 @@
+{%
+  set links = [
+  {
+  href: "#system",
+  text: "О системе",
+  },
+  {
+  href: "#architecture",
+  text: "Архитектура",
+  },
+  {
+  href: "#opinion",
+  text: "Мнения",
+  },
+  {
+  href: "#try",
+  text: "Попробовать",
+  },
+  {
+  href: "#in-joke",
+  text: "Для своих",
+  },
+  ]
+%}
+
+<nav class="nav">
+  <ul class="list">
+    {% for link in links %}
+      <li class="item">
+        <a href="{{link.href}}" class="link js-smooth-scroll">{{ link.text }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</nav>

@@ -1,0 +1,14 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+
+  & button {
+    width: max-content;
+    margin-top: 0.8rem;
+
+    @include breakpoint-down($md) {
+      margin-top: 1.6rem;
+    }
+  }
+}
